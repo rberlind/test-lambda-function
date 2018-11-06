@@ -161,10 +161,10 @@ resource "aws_lambda_function" "test_lambda" {
   runtime          = "python2.7"
   kms_key_arn      = "${var.kms_key}"
 
-  /*vpc_config {
-    subnet_ids = ["${var.subnet_id}"]
-    security_group_ids = ["${var.security_group_id}"]
-  }*/
+  vpc_config {
+    subnet_ids = []
+    security_group_ids = []
+  }
 
   environment {
     variables = {
