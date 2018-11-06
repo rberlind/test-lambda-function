@@ -167,7 +167,3 @@ resource "aws_lambda_function" "test_lambda" {
   }
 
 }
-
-output "kms_key_arn" {
-  value = "${aws_lambda_function.test_lambda.kms_key_arn}"
-}
