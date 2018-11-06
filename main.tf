@@ -159,12 +159,12 @@ resource "aws_lambda_function" "test_lambda" {
   handler          = "app.handler"
   source_code_hash = "${base64sha256(file("app.zip"))}"
   runtime          = "python2.7"
-# kms_key_arn      = "${var.kms_key}"
+  kms_key_arn      = "${var.kms_key}"
 
-  vpc_config {
+  /*vpc_config {
     subnet_ids = ["${var.subnet_id}"]
     security_group_ids = ["${var.security_group_id}"]
-  }
+  }*/
 
   environment {
     variables = {
@@ -172,4 +172,8 @@ resource "aws_lambda_function" "test_lambda" {
     }
   }
 
+}
+
+output "kms_key_arn" {
+  value = "${aws_lambda_function.test_lambda.kms_key_arn}"
 }
