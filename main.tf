@@ -162,8 +162,6 @@ resource "aws_lambda_function" "test_lambda" {
   kms_key_arn      = "${var.kms_key}"
 
   vpc_config {
-    subnet_ids = []
-    security_group_ids = []
   }
 
   environment {
