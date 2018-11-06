@@ -159,7 +159,7 @@ resource "aws_lambda_function" "test_lambda" {
   handler          = "app.handler"
   source_code_hash = "${base64sha256(file("app.zip"))}"
   runtime          = "python2.7"
-  kms_key_arn      = "${var.kms_key}"
+# kms_key_arn      = "${var.kms_key}"
 
   vpc_config {
     subnet_ids = ["${var.subnet_id}"]
